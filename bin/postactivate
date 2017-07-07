@@ -1,0 +1,6 @@
+#!/bin/bash
+# This hook is sourced after this virtualenv is activated.
+export WILL_USERNAME="1_2103@hipchat.akto.biz"
+export WILL_PASSWORD="ACAChackathon"
+export WILL_V2_TOKEN="F2KSJ2ruogdru82OJXm8SA7K5M1zg4JViV0eUFyV"
+
