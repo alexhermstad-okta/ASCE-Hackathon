@@ -3,9 +3,11 @@ from will.decorators import respond_to, periodic, hear, randomly, route, rendere
 import requests
 
 class BaconPlugin(WillPlugin):
+    @respond_to("get results from (?P<sha>.*)")
+    def say_bonjour_will(self, message, sha):
+        r = requests.post('http://10.20.197.218:8888/bacon', verify=False, json = {
+        "sha": sha
+        })
 
-    @respond_to("get results")
-    def say_bonjour_will(self, message):
-        import requests
-        r = requests.post('http://10.20.197.218:8888/bacon', json={"sha": "aa347fc983f6cc578a2731b9nc4240e3b4a1e156"})
-        self.reply(message, r)
+        self.reply(message, str(r.text))
+
